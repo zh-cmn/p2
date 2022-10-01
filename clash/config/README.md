@@ -1,5 +1,7 @@
 https://github.com/Dreamacro/clash/wiki/configuration
 
+https://docs.metacubex.one
+
 &exclude=%E9%99%90%E9%80%9F （限速）
 
 tg://http?server=127.0.0.1&port=8080&remarks=Music
