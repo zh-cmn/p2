@@ -1,6 +1,6 @@
-https://dreamacro.github.io/clash
+[Clash 文档](https://dreamacro.github.io/clash)
 
-https://docs.metacubex.one
+[Clash Meta 文档](https://docs.metacubex.one)
 
 &exclude=%E9%99%90%E9%80%9F （限速）
 
