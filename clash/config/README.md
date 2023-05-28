@@ -1,4 +1,4 @@
-https://github.com/Dreamacro/clash/wiki/configuration
+https://dreamacro.github.io/clash
 
 https://docs.metacubex.one
 
