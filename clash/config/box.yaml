@@ -109,19 +109,19 @@ rule-providers:
     interval: 259200
     path: ./rule/GoogleFCM.yaml
     type: http
-    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/GoogleFCM.yaml"
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/GoogleFCM.yaml"
   Microsoft:
     behavior: classical
     interval: 259200
     path: ./rule/Microsoft.yaml
     type: http
-    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Microsoft.yaml"
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Microsoft.yaml"
   Apple:
     behavior: classical
     interval: 259200
     path: ./rule/Apple.yaml
     type: http
-    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Apple.yaml"
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Apple.yaml"
   ProxyGFWlist:
     behavior: classical
     interval: 259200
