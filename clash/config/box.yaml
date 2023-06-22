@@ -1,1 +1,108 @@
+mixed-port: 7890
+redir-port: 7891
+tproxy-port: 1536
+allow-lan: true
+mode: rule
+geodata-mode: true
+unified-delay: true
+log-level: info
+ipv6: false
+external-controller: 127.0.0.1:9090
+external-ui: dashboard
+secret: ""
+enable-process: true
+find-process-mode: strict
+#tcp-concurrent: true
+global-client-fingerprint: chrome
 
+geox-url:
+  geoip: "https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geoip.dat"
+  geosite: "https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geosite.dat"
+  mmdb: "https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/country.mmdb"
+
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+sniffer:
+  enable: false
+  sniff:
+    TLS:
+      ports: [443, 8443]
+    HTTP:
+      ports: [80, 8080-8880]
+      override-destination: true
+
+tun:
+  enable: false
+  device: tun3
+  stack: system
+  inet6-address: 
+  dns-hijack:
+    - 'any:53'
+  auto-route: true
+  auto-detect-interface: true
+
+dns:
+  enable: true
+  listen: 0.0.0.0:1053
+  ipv6: false
+  enhanced-mode: redir-host
+  fake-ip-range: 28.0.0.1/8
+  fake-ip-filter:
+    - '*'
+    - '+.lan'
+    - 'connect.rom.miui.com'
+  default-nameserver:
+    - 223.5.5.5
+    - 119.29.29.29
+    - 114.114.114.114
+    - 1.1.1.1
+    - 8.8.8.8
+  nameserver:
+    - https://doh.pub/dns-query
+    - https://dns.alidns.com/dns-query
+    - https://one.one.one.one/dns-query
+    - https://dns.google/dns-query
+  nameserver-policy:
+    "geosite:cn,private":
+      - https://doh.pub/dns-query
+      - https://dns.alidns.com/dns-query
+
+hosts:
+  'mtalk.google.com': 108.177.125.188
+
+proxies:
+  - {name: CFA, server: 127.0.0.1, port: 17891, type: socks5}
+proxy-groups:
+  - name: 代理
+    type: select
+    proxies:
+      - CFA
+      - DIRECT
+  - name: 必应
+    type: select
+    proxies:
+      - 代理
+      - DIRECT
+  - name: 其他
+    type: select
+    proxies:
+      - DIRECT
+      - 代理
+
+rule-providers:
+  LAN:
+    behavior: classical # domain ipcidr
+    interval: 259200
+    path: ./rule/LocalAreaNetwork.yaml
+    type: http
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/LocalAreaNetwork.yaml"
+  UnBan:
+    behavior: classical
+    interval: 259200
+    path: ./rule/UnBan.yaml
+    type: http
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/UnBan.yaml"
+
+rules:
