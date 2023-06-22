@@ -149,7 +149,7 @@ rule-providers:
   ChinaCompanyIp:
     behavior: classical
     interval: 259200
-    path: ./rule/ChinaDomain.yaml
+    path: ./rule/ChinaCompanyIp.yaml
     type: http
     url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ChinaCompanyIp.yaml"
   Download:
