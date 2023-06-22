@@ -92,7 +92,7 @@ proxy-groups:
       - 代理
 
 rule-providers:
-  LAN:
+  LocalAreaNetwork:
     behavior: classical # domain ipcidr
     interval: 259200
     path: ./rule/LocalAreaNetwork.yaml
@@ -104,5 +104,95 @@ rule-providers:
     path: ./rule/UnBan.yaml
     type: http
     url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/UnBan.yaml"
+  GoogleFCM:
+    behavior: classical
+    interval: 259200
+    path: ./rule/GoogleFCM.yaml
+    type: http
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/GoogleFCM.yaml"
+  Microsoft:
+    behavior: classical
+    interval: 259200
+    path: ./rule/Microsoft.yaml
+    type: http
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Microsoft.yaml"
+  Apple:
+    behavior: classical
+    interval: 259200
+    path: ./rule/Apple.yaml
+    type: http
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Apple.yaml"
+  ProxyGFWlist:
+    behavior: classical
+    interval: 259200
+    path: ./rule/ProxyGFWlist.yaml
+    type: http
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ProxyGFWlist.yaml"
+  ProxyMedia:
+    behavior: classical
+    interval: 259200
+    path: ./rule/ProxyMedia.yaml
+    type: http
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ProxyMedia.yaml"
+  ChinaMedia:
+    behavior: classical
+    interval: 259200
+    path: ./rule/ChinaMedia.yaml
+    type: http
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ChinaMedia.yaml"
+  ChinaDomain:
+    behavior: classical
+    interval: 259200
+    path: ./rule/ChinaDomain.yaml
+    type: http
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ChinaDomain.yaml"
+  ChinaCompanyIp:
+    behavior: classical
+    interval: 259200
+    path: ./rule/ChinaDomain.yaml
+    type: http
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ChinaCompanyIp.yaml"
+  Download:
+    behavior: classical
+    interval: 259200
+    path: ./rule/Download.yaml
+    type: http
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Download.yaml"
 
 rules:
+  - RULE-SET,LocalAreaNetwork,DIRECT
+  - RULE-SET,UnBan,DIRECT
+  - RULE-SET,GoogleFCM,DIRECT
+  - DOMAIN-SUFFIX,bing.com,必应
+  - DOMAIN-SUFFIX,msn.com,必应
+  - DOMAIN-SUFFIX,onedrive.live.com,代理
+  - DOMAIN-SUFFIX,openai.com,代理
+  - RULE-SET,Microsoft,DIRECT
+  - RULE-SET,Apple,DIRECT
+  - RULE-SET,ProxyGFWlist,代理
+  - RULE-SET,ProxyMedia,代理
+  - RULE-SET,ChinaMedia,DIRECT
+  - RULE-SET,ChinaDomain,DIRECT
+  - RULE-SET,ChinaCompanyIp,DIRECT
+  - RULE-SET,Download,DIRECT
+  
+
+  - AND,((NETWORK,UDP),(DST-PORT,123)),DIRECT
+  - GEOSITE,ehentai,代理
+  - GEOSITE,twitter,代理
+  - GEOSITE,youtube,代理
+  - GEOSITE,google,代理
+  - GEOSITE,telegram,代理
+  - GEOSITE,netflix,代理
+  - GEOSITE,bahamut,代理
+  - GEOSITE,spotify,代理
+
+  - GEOIP,google,代理
+  - GEOIP,netflix,代理
+  - GEOIP,telegram,代理
+  - GEOIP,twitter,代理
+
+  - GEOSITE,CN,DIRECT
+  - GEOIP,CN,DIRECT
+  - GEOIP,PRIVATE,DIRECT,no-resolve
+  - MATCH,其他
