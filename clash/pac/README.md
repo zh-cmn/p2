@@ -1,8 +1,10 @@
 https://cdn.jsdelivr.net/gh/zh-cmn/public@main/clash/pac/gfwlist7890.pac
 
-https://github.com/gfwlist/gfwlist
+https://raw.sevencdn.com/zh-cmn/public/main/clash/pac/gfwlist7890.pac
 
 https://github.com/petronny/gfwlist2pac
+
+https://github.com/gfwlist/gfwlist
 
 ~~~
 "artifacts.bitwarden.com",
