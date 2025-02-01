@@ -27,3 +27,8 @@ https://github.com/jklolixxs/listes/blob/master/Clash/Ruleset/PlusEmbyProxy.ini
 https://github.com/LucaLin233/Luca_Conf/blob/main/QX/Luca_Emby.list
 
 https://github.com/lanzVw/Proxy_Config/blob/main/Clash/Emby.list
+
+~~~
+clash meta IN-TYPE,SOCKS/HTTP,auto
+入站类型规则：表示来自某入站类型的流量怎么走规则，支持（HTTP/HTTPS/SOCKS/TUN/TPROXY/REDIR/INNER）
+~~~
